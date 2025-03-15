@@ -1,0 +1,37 @@
+uuid: 5445ecb1-0ac4-40d2-b1f1-318db5ea4095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.teams.field_discipline
+    - field.field.node.teams.field_team_name
+    - node.type.teams
+  module:
+    - user
+id: node.teams.default
+targetEntityType: node
+bundle: teams
+mode: default
+content:
+  field_discipline:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_team_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

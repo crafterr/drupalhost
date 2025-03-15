@@ -1,0 +1,29 @@
+uuid: fed7958a-32d5-49c0-b470-691ab0ccc990
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_player
+    - node.type.oceny
+    - node.type.players
+id: node.oceny.field_player
+field_name: field_player
+entity_type: node
+bundle: oceny
+label: Player
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      players: players
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

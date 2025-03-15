@@ -1,0 +1,34 @@
+uuid: afbebe8a-381d-4239-a54c-f26b8ae2b78b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.sport.field_image
+    - taxonomy.vocabulary.sport
+  module:
+    - image
+    - text
+id: taxonomy_term.sport.default
+targetEntityType: taxonomy_term
+bundle: sport
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

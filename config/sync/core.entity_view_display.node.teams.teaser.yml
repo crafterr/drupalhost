@@ -1,0 +1,24 @@
+uuid: f92a050f-8bff-4f49-b290-3925c7a40498
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.teams.field_discipline
+    - field.field.node.teams.field_team_name
+    - node.type.teams
+  module:
+    - user
+id: node.teams.teaser
+targetEntityType: node
+bundle: teams
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_discipline: true
+  field_team_name: true

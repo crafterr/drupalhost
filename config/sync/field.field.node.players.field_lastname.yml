@@ -1,0 +1,19 @@
+uuid: 2f1f3549-1194-43e6-bdf4-40c5acda57c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lastname
+    - node.type.players
+id: node.players.field_lastname
+field_name: field_lastname
+entity_type: node
+bundle: players
+label: LastName
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

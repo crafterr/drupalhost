@@ -1,0 +1,22 @@
+uuid: 22eaa409-f5e2-4aa2-bcb6-29268143ef58
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.oceny.field_player
+    - node.type.oceny
+  module:
+    - user
+id: node.oceny.teaser
+targetEntityType: node
+bundle: oceny
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_player: true

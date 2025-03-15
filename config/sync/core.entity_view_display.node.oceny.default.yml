@@ -1,0 +1,28 @@
+uuid: be965185-91d4-4fb7-a5f3-a7c5de83ed73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.oceny.field_player
+    - node.type.oceny
+  module:
+    - user
+id: node.oceny.default
+targetEntityType: node
+bundle: oceny
+mode: default
+content:
+  field_player:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

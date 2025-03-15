@@ -1,0 +1,37 @@
+uuid: eb885a3e-ccef-405a-853e-48b828783140
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bck.body
+    - field.field.node.bck.field_sport
+    - node.type.bck
+  module:
+    - text
+    - user
+id: node.bck.default
+targetEntityType: node
+bundle: bck
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_sport:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

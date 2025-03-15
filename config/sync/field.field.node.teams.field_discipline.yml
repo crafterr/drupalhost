@@ -1,0 +1,29 @@
+uuid: 8944e6f6-ffe4-45ea-993a-186ecf36e260
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_discipline
+    - node.type.teams
+    - taxonomy.vocabulary.sport
+id: node.teams.field_discipline
+field_name: field_discipline
+entity_type: node
+bundle: teams
+label: Discipline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sport: sport
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

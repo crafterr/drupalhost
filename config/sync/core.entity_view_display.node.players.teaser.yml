@@ -1,0 +1,26 @@
+uuid: fb60cb9a-5f2c-4dc4-834f-d1fe709e207b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.players.field_firstname
+    - field.field.node.players.field_lastname
+    - field.field.node.players.field_team
+    - node.type.players
+  module:
+    - user
+id: node.players.teaser
+targetEntityType: node
+bundle: players
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_firstname: true
+  field_lastname: true
+  field_team: true

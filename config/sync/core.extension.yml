@@ -7,10 +7,15 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  chosen: 0
+  chosen_field: 0
+  chosen_lib: 0
   ckeditor5: 0
   comment: 0
   config: 0
   contact: 0
+  content_lock: 0
+  content_lock_timeout: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -36,10 +41,13 @@ module:
   path_alias: 0
   search: 0
   shortcut: 0
+  shs: 0
+  shs_chosen: 0
   system: 0
   taxonomy: 0
   text: 0
   toolbar: 0
+  ultimate_cron: 0
   update: 0
   user: 0
   views_ui: 0

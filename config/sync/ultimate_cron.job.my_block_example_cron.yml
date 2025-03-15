@@ -1,0 +1,29 @@
+uuid: b65a3eb0-ac61-4e61-bdc3-ff5f78f80f2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - my_block_example
+title: 'Default cron handler'
+id: my_block_example_cron
+weight: 0
+module: my_block_example
+callback: 'my_block_example#cron'
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '*/15+@ * * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
