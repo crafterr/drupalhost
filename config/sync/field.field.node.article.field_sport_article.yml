@@ -1,0 +1,29 @@
+uuid: 3c57446d-80f3-495d-a155-c855de9a3f2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sport_article
+    - node.type.article
+    - taxonomy.vocabulary.sport
+id: node.article.field_sport_article
+field_name: field_sport_article
+entity_type: node
+bundle: article
+label: Sport
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sport: sport
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

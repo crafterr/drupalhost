@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
-    - field.field.node.article.field_tags
+    - field.field.node.article.field_sport_article
     - field.field.node.article.field_test
     - image.style.medium
     - node.type.article
@@ -41,17 +41,10 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
-  field_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
-    region: content
   links:
     weight: 100
     region: content
 hidden:
   comment: true
+  field_sport_article: true
   field_test: true
