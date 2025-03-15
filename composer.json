@@ -22,6 +22,7 @@
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
+        "drupal/devel": "^5.0",
         "drupal/shs": "^2.0",
         "drupal/ultimate_cron": "^2.0@beta",
         "drush/drush": "^13.3"
