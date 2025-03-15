@@ -1,0 +1,28 @@
+uuid: d99e2daa-2893-41e8-b0aa-220d56989960
+langcode: en
+status: true
+dependencies:
+  module:
+    - my_block_example
+    - system
+  theme:
+    - olivero
+id: olivero_exampleblock
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: my_example_block
+settings:
+  id: my_example_block
+  label: ExampleBlock
+  label_display: visible
+  provider: my_block_example
+  context_mapping:
+    node: '@node.node_route_context:node'
+  example: 'Hello my world!!!'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/1

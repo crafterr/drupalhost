@@ -1,0 +1,203 @@
+<?php
+declare(strict_types=1);
+/**
+ * @file
+ * Primary module hooks for My Node Fields module.
+ */
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+/**
+ * @file
+ * Primary module hooks for My Examples module.
+ */
+/**
+ * Implements hook_theme().
+ *
+ * We use hook_theme to define the templates used.
+ */
+function my_block_example_theme($existing, $type, $theme, $path): array {
+  return [
+    'basic_twig_block' => [
+      'variables' => [
+        'msg' => '',
+        'node' => NULL
+      ],
+    ],
+    'css_block' => [
+      'variables' => [],
+    ],
+    'js_block' => [
+      'variables' => [],
+    ],
+    'context_block' => [
+      'variables' => [
+        'name' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function my_block_example_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+
+  // Add the field to node entities.
+  if ($entity_type->id() === 'node') {
+    $fields['node_single_text'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Name'))
+      ->setDescription(t('The name of the Demo entity entity.'))
+      ->setSettings([
+        'max_length' => 50,
+        'text_processing' => 0,
+      ])
+      ->setDefaultValue('')
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED) // 💡 Kluczowy element!
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ])
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayConfigurable('view', FALSE);
+
+
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ */
+function my_block_example_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+  if ($entity_type->id() == 'node' && $bundle == 'page') {
+    $fields = [];
+    // Add a property only to nodes of the 'person' bundle.
+    $fields['full_name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Full name'))
+      ->setDescription(t('Full name field'))
+      // Mark this field as computed.
+      ->setComputed(TRUE)
+      // Mark your field as read only since it's computed we will never populate it.
+      ->setReadOnly(TRUE)
+      // Set our class as field class.
+      ->setClass(\Drupal\my_block_example\Plugin\Field\FieldType\FullNameComputedField::class)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'label'  => 'above',
+        'type'   => 'string',
+        'weight' => 0,
+      ]);
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function my_block_example_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (is_array($form['#theme']) && in_array('node_form', $form['#theme'], TRUE)) {
+    // Create breadcrumbs section in the sidebar.
+    $form['my_field_overrides_container'] = [
+      '#type' => 'details',
+      '#group' => 'advanced',
+      // Display the container at the bottom of the sidebar.
+      '#weight' => 99,
+      '#title' => t('Overrides my fields'),
+      '#tree' => TRUE,
+      '#access' => TRUE,
+      '#open' => TRUE
+    ];
+
+  }
+  $form['node_single_text']['#group'] = 'my_field_overrides_container';
+}
+
+
+function my_block_example_update_10002() {
+  $field_storage_definition =  BaseFieldDefinition::create('string')
+    ->setLabel(t('Name'))
+    ->setDescription(t('The name of the Demo entity entity.'))
+    ->setDefaultValue('')
+    ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('node_single_text', 'node', 'node', $field_storage_definition);
+
+}
+
+function my_block_example_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  $build['anyvalue'] = [
+    '#markup' => 'To poprawny sposób wyświetlania treści',
+  ];
+}
+
+/**
+ * Returns a proper array to be used for downloads.
+ */
+function my_block_example_pfdp_get_download_headers($uri) {
+  return [
+    'Content-Type' => \Drupal::service('file.mime_type.guesser')->guessMimeType($uri),
+    'Content-Disposition' => 'inline',
+  ];
+}
+
+/**
+ * Forces a file to be downloaded to the browser.
+ */
+function my_block_example__pfdp_force_download($uri, $uri_download_headers) {
+  // Create a response here and send it to the browser.
+  $file = new BinaryFileResponse($uri, 200, $uri_download_headers, FALSE);
+  $file->send();
+  // Exit to avoid duplication of HTTP transmission.
+  exit();
+}
+
+/**
+ * Implements hook_file_download().
+ */
+/*function my_block_example_file_download($uri) {
+  $user = \Drupal::currentUser();
+
+  // Check if $uri is valid.
+  if (('://' === mb_substr($uri, -3, 3)) || is_dir($uri)) {
+    $logger->warning('Invalid uri: "%uri".', ['%uri' => $uri]);
+    return -1;
+  }
+  // Skip public files.
+  if ('public://' === mb_substr($uri, 0, 9)) {
+    return NULL;
+  }
+  // Retrieve the download headers for $uri.
+  $uri_download_headers = my_block_example_pfdp_get_download_headers($uri);
+  $user_roles = $user->getRoles();
+  if (count(array_intersect(['administrator', 'moderator', 'worker'], $user_roles))) {
+    return my_block_example__pfdp_force_download($uri, $uri_download_headers);
+  }
+  return -1;
+}*/
+/**
+ * Implements hook_file_download().
+ */
+function my_block_example_file_download ($uri){
+/*  if (substr ($uri, 0, 25) == 'private://default_images/') {
+
+    return [
+      ''
+    ];
+  }*/
+}
+
+function my_block_example_cron() {
+  \Drupal::logger('my_block_example')->notice('Cron ran');
+}
+

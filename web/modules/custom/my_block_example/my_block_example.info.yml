@@ -1,0 +1,8 @@
+name: 'My Block Example'
+type: module
+description: 'kldsfa'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:block
+  - drupal:config

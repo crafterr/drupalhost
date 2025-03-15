@@ -16,9 +16,14 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/chosen": "^5.0",
+        "drupal/content_lock": "^2.4",
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
+        "drupal/shs": "^2.0",
+        "drupal/ultimate_cron": "^2.0@beta",
         "drush/drush": "^13.3"
     },
     "conflict": {
@@ -29,15 +34,21 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/shs": {
+                "Issue #3511731": "https://git.drupalcode.org/project/shs/-/merge_requests/37.diff"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

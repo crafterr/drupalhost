@@ -9,6 +9,7 @@ dependencies:
     - contact
     - file
     - filter
+    - my_block_example
     - search
     - shortcut
     - system
@@ -23,6 +24,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access to my block'
   - 'delete own files'
   - 'post comments'
   - 'search content'
