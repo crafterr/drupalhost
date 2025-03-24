@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+/**
+ * @file
+ * Primary module hooks for My Node Fields module.
+ */
+
+/**
+ * Implements hook_views_data_alter().
+ */
+/**
+ * Implements hook_views_data_alter().
+ */
+function custom_view_term_icon_views_data_alter(array &$data) {
+  // Ensure the 'taxonomy_term_field_data' table is modified, not just 'taxonomy_term'.
+  if (isset($data['taxonomy_term_field_data'])) {
+    $data['taxonomy_term_field_data']['term_icon'] = [
+      'title' => t('Term Icon'),
+      'group' => t('Taxonomy Term'),
+      'help' => t('Render term icon based on taxonomy term.'),
+      'field' => [
+        'id' => 'term_icon', // Must match the @ViewsField ID in the field plugin
+      ],
+    ];
+  }
+}

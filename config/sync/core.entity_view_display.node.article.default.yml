@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_sport_article
-    - field.field.node.article.field_test
+    - field.field.node.article.field_weather
     - image.style.wide
     - node.type.article
   module:
@@ -58,13 +58,13 @@ content:
     third_party_settings: {  }
     weight: 112
     region: content
-  field_test:
-    type: string
+  field_weather:
+    type: entity_reference_label
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    weight: 111
+    weight: 113
     region: content
   links:
     settings: {  }

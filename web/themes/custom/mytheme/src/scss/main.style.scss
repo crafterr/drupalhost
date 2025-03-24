@@ -1,0 +1,61 @@
+// Bootstrap
+// -----------------------------------------------------------------------------
+@import 'init';
+@import 'bootstrap';
+
+// Include any custom stylesheets here
+// -----------------------------------------------------------------------------
+@import "base/elements";
+@import "base/functions";
+@import "base/helpers";
+@import "base/typography";
+
+// Wspólne style dla wszystkich ikon sportowych
+.taxonomy_icons {
+  width: 50px; // Możesz dostosować do swoich potrzeb
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+// Ikony - przypisane konkretne obrazy SVG
+.code_pilka_nozna {
+  background-image: url('../assets/icons/1.svg');
+}
+
+.code_siatkowka {
+  background-image: url('../assets/icons/2.svg');
+}
+
+.code_legia_warszawa {
+  background-image: url('../assets/icons/3.svg');
+}
+
+.code_liverpool {
+  background-image: url('../assets/icons/4.svg');
+}
+
+.code_manchestercity {
+  background-image: url('../assets/icons/5.svg');
+}
+
+.code_realmadrit {
+  background-image: url('../assets/icons/6.svg');
+}
+
+.code_nortenalli {
+  background-image: url('../assets/icons/7.svg');
+}
+
+.code_rainy {
+  background-image: url('../assets/icons/rainy.svg');
+}
+
+.code_stormy {
+  background-image: url('../assets/icons/stormy.svg');
+}
+.code_sunny {
+  background-image: url('../assets/icons/sunny.svg');
+}

@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Theme functions.
+ */
+
+// Include all files from the includes directory.
+$includes_path = dirname(__FILE__) . '/includes/*.theme';
+foreach (glob($includes_path) as $file) {
+  require_once dirname(__FILE__) . '/includes/' . basename($file);
+}
+function mytheme_preprocess_views_view_fields(&$variables) {
+  $view = $variables['view'];
+
+  // Sprawdź ID widoku i display.
+  if ($view->id() === 'news' && $view->current_display === 'page_2') {
+
+    // Pobierz dane pól.
+    $fields = $variables['fields'];
+    //dump($variables);
+    // Zabezpiecz dane (upewnij się, że pole istnieje).
+    $term_name = isset($fields['title']) ? $fields['title']->content : '';
+    $published = isset($fields['body']) ? $fields['body']->content : '';
+    $icon_code = isset($fields['field_image']) ? strtolower(trim($fields['field_image']->content)) : '';
+
+    // Zbuduj własny output HTML.
+   /* $output = '<div class="sport ' . $icon_code . '">';
+    $output .= '<div class="container">';
+    $output .= $term_name . '<br>' . $published;
+    $output .= '</div></div>';
+
+    // Nadpisz całkowicie widok z custom HTML.
+    $variables['row_classes'][] = 'custom-sport-icon-row'; // możesz dodać też klasę do całego rzędu.
+    $variables['fields']['field_term_name']->content = $output;
+
+    // Opcjonalnie: ukryj inne pola.
+    unset($variables['fields']['field_sport_icon_code']);
+    unset($variables['fields']['field_published_date']);*/
+  }
+}

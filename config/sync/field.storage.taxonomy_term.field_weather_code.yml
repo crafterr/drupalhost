@@ -1,12 +1,12 @@
-uuid: ebdf8108-07e2-47b5-8f61-5e659ca31c29
+uuid: 47ed4b91-df8b-4041-8a4f-32c4eae6416b
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: node.field_test
-field_name: field_test
-entity_type: node
+    - taxonomy
+id: taxonomy_term.field_weather_code
+field_name: field_weather_code
+entity_type: taxonomy_term
 type: string
 settings:
   max_length: 255

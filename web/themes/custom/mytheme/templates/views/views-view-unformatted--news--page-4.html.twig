@@ -1,0 +1,56 @@
+
+
+{#
+/**
+ * @file
+ * Implements a template to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. Can be empty.
+ * - rows: An array of the view's row items. Each row contains:
+ *   - attributes: The HTML attributes for the row.
+ *   - content: The actual content of the row.
+ * - view: The view object.
+ * - default_row_class: A boolean indicating whether default row classes should be used.
+ * - row_utility_classes: An array of optional utility classes to be used.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<table class="table table-striped align-middle">
+  <thead class="table-light">
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Body</th>
+    <th scope="col">Image / Icon</th>
+    <th scope="col">Text</th>
+  </tr>
+  </thead>
+  <tbody>
+
+{% block views_unformatted_rows %}
+  {% for key, row in rows %}
+    {% set node = row.content['#row']._entity %}
+    <tr{{ row.attributes.addClass(['views-row']) }}>
+      <td>
+        {{ view.style_plugin.getField(key, 'title') }}
+      </td>
+      <td>
+        {{ view.style_plugin.getField(key, 'body') }}
+      </td>
+      <td>
+        {% set has_image = node.field_image is defined and not node.field_image.isEmpty() %}
+        {% if has_image %}
+          {{ view.style_plugin.getField(key, 'field_image') }}
+        {% else %}
+          {% set icon_class = view.style_plugin.getField(key, 'field_sport_code')|render|striptags|trim|lower|replace({' ': '_'}) %}
+          <div class="taxonomy_icons {{ icon_class }}"></div>
+        {% endif %}
+      </td>
+      <td>{{ view.style_plugin.getField(key, 'views_conditional_field') }}</td>
+    </tr>
+  {% endfor %}
+{% endblock %}
+
+  </tbody>
+</table>

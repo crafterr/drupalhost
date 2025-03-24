@@ -30,9 +30,9 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: c796c301-a74e-435a-b7b2-a0ace0109056
-    alt: das
-    title: fs
+    uuid: ''
+    alt: ''
+    title: ''
     width: 3000
     height: 3000
 field_type: image

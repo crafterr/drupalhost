@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ddb703874a9db902d47cecbe156c64",
+    "content-hash": "8daa1ec5ffcc6a1937c8b88f4cb25a7b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2082,6 +2082,125 @@
             }
         },
         {
+            "name": "drupal/entityqueue",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entityqueue.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entityqueue-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "96c62b4e8398e0bd82199c938da986b43e015666"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1733392707",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "jojonaloha",
+                    "homepage": "https://www.drupal.org/user/1579186"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                }
+            ],
+            "description": "Allows users to collect entities in arbitrarily ordered lists.",
+            "homepage": "https://www.drupal.org/project/entityqueue",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entityqueue"
+            }
+        },
+        {
+            "name": "drupal/radix",
+            "version": "6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/radix.git",
+                "reference": "6.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/radix-6.0.1.zip",
+                "reference": "6.0.1",
+                "shasum": "249f345b3485143e7a0dc015ee5533369eeb1574"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "require-dev": {
+                "drush/drush": "^12 || ^13"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "6.0.1",
+                    "datestamp": "1737210933",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^12 || ^13"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sohail Lajevardi",
+                    "homepage": "https://www.drupal.org/user/504278",
+                    "email": "doxigo@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "doxigo",
+                    "homepage": "https://www.drupal.org/user/1331334"
+                },
+                {
+                    "name": "hosisam",
+                    "homepage": "https://www.drupal.org/user/3449435"
+                },
+                {
+                    "name": "shadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
+                }
+            ],
+            "description": "Radix is a Bootstrap 5 component-based base theme for Drupal. It has Bootstrap, Sass, BrowserSync and a lot more goodies built-in.",
+            "homepage": "https://www.drupal.org/project/radix",
+            "support": {
+                "source": "https://git.drupalcode.org/project/radix",
+                "issues": "https://www.drupal.org/project/issues/radix"
+            }
+        },
+        {
             "name": "drupal/shs",
             "version": "2.0.2",
             "source": {
@@ -2199,6 +2318,62 @@
             "homepage": "https://www.drupal.org/project/ultimate_cron",
             "support": {
                 "source": "https://git.drupalcode.org/project/ultimate_cron"
+            }
+        },
+        {
+            "name": "drupal/views_conditional",
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_conditional.git",
+                "reference": "8.x-1.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_conditional-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "54997357c05b7f08b87411018eed3aafd3e65547"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.10",
+                    "datestamp": "1727901408",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "anand.toshniwal93",
+                    "homepage": "https://www.drupal.org/user/3345088"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "MChittenden",
+                    "homepage": "https://www.drupal.org/user/2288348"
+                },
+                {
+                    "name": "shelane",
+                    "homepage": "https://www.drupal.org/user/2674989"
+                }
+            ],
+            "description": "Allows conditional views output.",
+            "homepage": "https://www.drupal.org/project/views_conditional",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_conditional"
             }
         },
         {

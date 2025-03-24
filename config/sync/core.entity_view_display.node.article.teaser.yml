@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_sport_article
-    - field.field.node.article.field_test
+    - field.field.node.article.field_weather
     - image.style.medium
     - node.type.article
   module:
@@ -47,4 +47,4 @@ content:
 hidden:
   comment: true
   field_sport_article: true
-  field_test: true
+  field_weather: true

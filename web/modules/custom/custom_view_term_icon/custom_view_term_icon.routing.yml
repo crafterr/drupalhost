@@ -1,0 +1,7 @@
+custom_view_term_icon.example:
+  path: '/custom-view-term-icon/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\custom_view_term_icon\Controller\CustomViewTermIconController'
+  requirements:
+    _permission: 'access content'

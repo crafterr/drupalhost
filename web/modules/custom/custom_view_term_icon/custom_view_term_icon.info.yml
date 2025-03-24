@@ -1,0 +1,5 @@
+name: 'Custom View Term Icon'
+type: module
+description: 'module provide custom field render view icon'
+package: Custom
+core_version_requirement: ^10 || ^11

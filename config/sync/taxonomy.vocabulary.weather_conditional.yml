@@ -1,0 +1,9 @@
+uuid: 62a3d4d2-a8c5-4e32-9886-6545a45c5575
+langcode: en
+status: true
+dependencies: {  }
+name: 'Weather conditional'
+vid: weather_conditional
+description: null
+weight: 0
+new_revision: false

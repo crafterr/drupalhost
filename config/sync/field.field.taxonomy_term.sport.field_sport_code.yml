@@ -1,0 +1,19 @@
+uuid: db3f0beb-4b93-4fc0-be5f-8776b9813056
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_sport_code
+    - taxonomy.vocabulary.sport
+id: taxonomy_term.sport.field_sport_code
+field_name: field_sport_code
+entity_type: taxonomy_term
+bundle: sport
+label: sport_code
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

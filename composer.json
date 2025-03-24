@@ -23,8 +23,11 @@
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
         "drupal/devel": "^5.0",
+        "drupal/entityqueue": "^1.9",
+        "drupal/radix": "^6.0",
         "drupal/shs": "^2.0",
         "drupal/ultimate_cron": "^2.0@beta",
+        "drupal/views_conditional": "^1.10",
         "drush/drush": "^13.3"
     },
     "conflict": {

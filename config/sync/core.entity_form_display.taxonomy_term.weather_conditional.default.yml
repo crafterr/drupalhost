@@ -1,0 +1,55 @@
+uuid: 324444d6-7c1c-4adb-a7f5-3ed789f07c7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.weather_conditional.field_weather_code
+    - field.field.taxonomy_term.weather_conditional.field_weather_icon
+    - taxonomy.vocabulary.weather_conditional
+  module:
+    - path
+    - text
+id: taxonomy_term.weather_conditional.default
+targetEntityType: taxonomy_term
+bundle: weather_conditional
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_weather_code:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  field_weather_icon: true

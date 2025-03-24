@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.sport.field_image
+    - field.field.taxonomy_term.sport.field_sport_code
     - image.style.thumbnail
     - taxonomy.vocabulary.sport
   module:
@@ -30,6 +31,14 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_sport_code:
+    type: string_textfield
+    weight: 102
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   name:
     type: string_textfield

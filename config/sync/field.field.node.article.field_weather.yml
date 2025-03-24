@@ -1,0 +1,29 @@
+uuid: 09980ca8-684e-4603-b250-6456c04f4c07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weather
+    - node.type.article
+    - taxonomy.vocabulary.weather_conditional
+id: node.article.field_weather
+field_name: field_weather
+entity_type: node
+bundle: article
+label: Weather
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      weather_conditional: weather_conditional
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

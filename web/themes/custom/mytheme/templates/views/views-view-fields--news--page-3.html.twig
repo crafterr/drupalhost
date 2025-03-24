@@ -1,0 +1,7 @@
+{% set image_field = row._entity.field_image %}
+
+{% if image_field is not empty and image_field.entity %}
+  {{ fields.field_image.content }}
+{% else %}
+  <div class="taxonomy_icons {{ fields.field_sport_code.content|lower }}"></div>
+{% endif %}

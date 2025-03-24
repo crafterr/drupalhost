@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_sport_article
-    - field.field.node.article.field_test
+    - field.field.node.article.field_weather
     - image.style.thumbnail
     - node.type.article
   module:
@@ -70,13 +70,11 @@ content:
         placeholder_text_single: 'Choose an option'
         no_results_text: 'No results match'
     third_party_settings: {  }
-  field_test:
-    type: string_textfield
-    weight: 121
+  field_weather:
+    type: options_select
+    weight: 123
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
