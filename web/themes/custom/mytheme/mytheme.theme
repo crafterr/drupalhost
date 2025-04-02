@@ -95,6 +95,8 @@ function mytheme_preprocess_views_view_fields(&$variables) {
     }
     dump($entity->get('field_sport_article')->entity->get('field_sport_code')->value);
 
+    //this comment will be reverted
+
 
 
   }
