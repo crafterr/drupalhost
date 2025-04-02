@@ -1,0 +1,27 @@
+<div class="card news-card h-100">
+  <!-- Header: title + date -->
+  <div class="d-flex justify-content-between align-items-center p-3 news_block_title">
+    <div class="news_title">
+      <span class="title">Title: {{ fields.title.content }} </span>
+    </div>
+    <div class="news_date">Created at: {{ fields.created.content }}</div>
+  </div>
+  <div class="body">
+    body: {{ fields.body.content }}
+  </div>
+
+
+
+  <!-- Content -->
+  <div class="card-body text-center news_block_content">
+    <h6 class="card-title m-0">
+      {{ fields.title.content }}
+    </h6>
+  </div>
+
+  <!-- Mobile-only block -->
+  <div>
+    <div>Parent term name:</div>
+    <div>{{ fields.views_conditional_field.content }}</div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ dependencies:
     - system.menu.main
   module:
     - node
+    - taxonomy
     - text
     - user
 id: articles
@@ -226,7 +227,12 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_sport_article:
+          id: field_sport_article
+          table: node__field_sport_article
+          field: field_sport_article
+          plugin_id: standard
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -245,6 +251,36 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      defaults:
+        relationships: false
+      relationships:
+        field_sport_article:
+          id: field_sport_article
+          table: node__field_sport_article
+          field: field_sport_article
+          relationship: none
+          group_type: group
+          admin_label: 'field_sport_article: Taxonomy term'
+          plugin_id: standard
+          required: false
+        field_weather:
+          id: field_weather
+          table: node__field_weather
+          field: field_weather
+          relationship: none
+          group_type: group
+          admin_label: 'field_weather: Taxonomy term'
+          plugin_id: standard
+          required: false
+        field_related_news:
+          id: field_related_news
+          table: node__field_related_news
+          field: field_related_news
+          relationship: none
+          group_type: group
+          admin_label: 'field_related_news: Content'
+          plugin_id: standard
+          required: false
       display_extenders: {  }
     cache_metadata:
       max-age: -1

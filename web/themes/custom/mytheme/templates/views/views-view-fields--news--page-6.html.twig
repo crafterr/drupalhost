@@ -3,22 +3,24 @@
   <div class="col-12 col-md-4">
 
     <div class="image">
-      {% if fields.field_image.isEmpty() %}
+
+      {% if has_field_image %}
       {{ fields.field_image.content }}
       {% else %}
-      {{ fields.term_icon.content }}
+        {{ fields.term_icon.content }}
       {% endif %}
+
     </div>
   </div>
   <div class="col-12 col-md-8">
     <p class="text-muted mb-1">{{ fields.changed.content }}</p>
     <h5>
-      <a href="{{ fields.view_node.content }}" class="text-decoration-none text-dark">
         {{ fields.title.content }}
-      </a>
     </h5>
     <p class="mb-0">
       {{ fields.body.content }}
     </p>
+    <p>{{ sport_code}}</p>
+    {{ fields.views_conditional_field.content }}
   </div>
 </div>

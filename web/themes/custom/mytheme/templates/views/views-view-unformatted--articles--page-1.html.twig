@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row g-4">
+    {% for row in rows %}
+      {% set is_first = loop.index0 == 0 %}
+      {% set col_class = is_first ? 'col-md-8' : 'col-md-4' %}
+      {% set extra_classes = row.attributes.class ? row.attributes.class|join(' ') : '' %}
+      <div class="{{ col_class }} d-flex {{ extra_classes }}">
+        {{ row.content }}
+      </div>
+    {% endfor %}
+  </div>
+</div>

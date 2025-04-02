@@ -1,0 +1,4 @@
+services:
+  discipline_icon.helper:
+    class: Drupal\custom_view_term_icon\DisciplineIconHelper
+    arguments: ['@entity_type.manager']

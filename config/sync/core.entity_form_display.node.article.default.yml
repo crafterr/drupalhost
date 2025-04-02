@@ -6,11 +6,14 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_related_news
     - field.field.node.article.field_sport_article
+    - field.field.node.article.field_tags
     - field.field.node.article.field_weather
     - image.style.thumbnail
     - node.type.article
   module:
+    - chosen_field
     - comment
     - image
     - path
@@ -53,6 +56,12 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
+  field_related_news:
+    type: chosen_select
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_sport_article:
     type: options_shs_chosen
     weight: 122
@@ -69,6 +78,16 @@ content:
         placeholder_text_multiple: 'Choose some options'
         placeholder_text_single: 'Choose an option'
         no_results_text: 'No results match'
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete
+    weight: 125
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_weather:
     type: options_select

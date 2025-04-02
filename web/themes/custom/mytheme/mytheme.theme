@@ -6,12 +6,48 @@
  */
 
 // Include all files from the includes directory.
+use Drupal\node\NodeInterface;
+
 $includes_path = dirname(__FILE__) . '/includes/*.theme';
 foreach (glob($includes_path) as $file) {
   require_once dirname(__FILE__) . '/includes/' . basename($file);
 }
 function mytheme_preprocess_views_view_fields(&$variables) {
   $view = $variables['view'];
+
+  if ($variables['view']->id() === 'news' && $variables['view']->current_display === 'page_6') {
+
+
+    $row = $variables['row'];
+
+    if (isset($row->_entity) && $row->_entity->hasField('field_image')) {
+      $field = $row->_entity->get('field_image');
+      $variables['has_field_image'] = !$field->isEmpty();
+    }
+    else {
+      $variables['has_field_image'] = FALSE;
+    }
+    // Zakładamy, że pole jest na nodzie;
+    if (isset($row->_entity) && $row->_entity->hasField('field_sport_article')) {
+      $field = $row->_entity->get('field_sport_article');
+
+      // Sprawdzenie czy referencja jest ustawiona
+      $variables['has_sport_article'] = !$field->isEmpty();
+
+      // Opcjonalnie: pobranie encji i jej właściwości
+      if (!$field->isEmpty()) {
+        $target_entity = $field->entity;
+
+        $variables['sport_article_label'] = $target_entity ? $target_entity->label() : '';
+        $variables['sport_article_id'] = $target_entity ? $target_entity->id() : NULL;
+      }
+
+    }
+    else {
+      $variables['has_sport_code'] = FALSE;
+
+    }
+  }
 
   // Sprawdź ID widoku i display.
   if ($view->id() === 'news' && $view->current_display === 'page_2') {
@@ -38,4 +74,43 @@ function mytheme_preprocess_views_view_fields(&$variables) {
     unset($variables['fields']['field_sport_icon_code']);
     unset($variables['fields']['field_published_date']);*/
   }
+
+  if ($view->id() === 'articles_related' && $view->current_display === 'page_1') {
+    $row = $variables['row'];
+
+    $related_id = $row->{'node_field_data_node__field_related_news_nid'} ?? NULL;
+
+      if ($related_id) {
+        $html = '<span class="custom-related-id">(' . $related_id . ')</span>';
+        $variables['fields']['nothing_1']->content = \Drupal\Core\Render\Markup::create($html);
+      }
+
+  }
+
+  if ($view->id() === 'articles' && $view->current_display === 'page_1') {
+    $row = $variables['row'];
+    $entity = $row->_entity;
+    if (!$entity || !$entity->hasField('field_sport_article') || $entity->get('field_sport_article')->isEmpty()) {
+      return '';
+    }
+    dump($entity->get('field_sport_article')->entity->get('field_sport_code')->value);
+
+
+
+  }
 }
+
+
+function mytheme_preprocess_page_title(array &$variables) {
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+
+  if ($route_match->getRouteName() === 'entity.node.canonical' && $node instanceof NodeInterface && $node->bundle() === 'article') {
+    /**
+     * @var \Drupal\custom_view_term_icon\DisciplineIconHelper $icon_service
+     */
+    $icon_service = \Drupal::service('discipline_icon.helper');
+    $variables['icon']['#markup'] = $icon_service->getIconFromNode($node);
+  }
+}
+

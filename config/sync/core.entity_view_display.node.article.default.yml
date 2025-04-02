@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_related_news
     - field.field.node.article.field_sport_article
+    - field.field.node.article.field_tags
     - field.field.node.article.field_weather
     - image.style.wide
     - node.type.article
@@ -50,6 +52,14 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
+  field_related_news:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
   field_sport_article:
     type: entity_reference_label
     label: above
@@ -57,6 +67,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 112
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 115
     region: content
   field_weather:
     type: entity_reference_label

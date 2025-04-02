@@ -1,0 +1,10 @@
+views.field.custom_view_term_icon:
+  type: views_field
+  label: 'Custom term icon field'
+  mapping:
+    template_type:
+      type: string
+      label: 'Template type'
+    term_source:
+      type: string
+      label: 'Term relationship source'

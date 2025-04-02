@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_related_news
     - field.field.node.article.field_sport_article
+    - field.field.node.article.field_tags
     - field.field.node.article.field_weather
     - image.style.medium
     - node.type.article
@@ -46,5 +48,7 @@ content:
     region: content
 hidden:
   comment: true
+  field_related_news: true
   field_sport_article: true
+  field_tags: true
   field_weather: true
